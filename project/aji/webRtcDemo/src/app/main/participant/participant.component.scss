@@ -1,0 +1,49 @@
+.video-caller{
+    // width: calc(100% - 10px);
+    width:100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    // height: calc(100% - 10px);
+    height: 100%;
+    border: 1px solid #ccc;
+    // margin: 5px;
+    background: #1d1b1c;
+    position: relative;
+    z-index: 1;
+    .overlay{
+        height: 100%;
+        width:100%;
+        position: absolute;
+        margin-top: 9999px;
+        top: 0px;
+        left: 0;
+        z-index: 2;
+        color: #fff;
+        transition: .5s;
+        div.tools{
+            position: absolute;
+            bottom: 0px;
+            height: 50px;
+            background: #04040480;
+            width: 100%;
+        }
+    }
+    &:hover{
+        .overlay{
+            top: 0px;
+            margin-top:0px;
+            transition: .5s
+        } 
+    }
+    video{
+        width: 100%;
+    }
+    .callerVideo{
+        display: none;
+        &.active{
+            display: block;
+        }
+    }
+}

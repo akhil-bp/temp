@@ -1,0 +1,31 @@
+.sidenav-container {
+  height: 100%;
+  padding: 25px;
+  .mat-grid-tile.chat-settings .mat-figure{
+    align-items: flex-start;
+  }
+}
+
+.sidenav{
+  width: 33.3%;
+  margin: 25px 0;
+  height: calc(100% - 50px);
+}
+
+.mat-toolbar.mat-primary {
+  position: sticky;
+  top: 0;
+}
+app-participant{
+  width: 100%;
+  height: 100%;
+  // padding: 5px;
+}
+app-my-video{
+  width: 100%;
+}
+mat-grid-tile.mat-grid-bordered{
+  figure{
+    border: 1px solid #ccc;
+  }
+}

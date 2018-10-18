@@ -1,0 +1,26 @@
+<div class="video-caller">
+    <video class="callerVideo" [ngClass]="{'active': stream}" id="callerVideo-{{participant}}" #videoCaller></video>
+    <div>
+        <button mat-raised-button color="primary" (click)="performCall()" *ngIf="!stream">Connect</button>
+        <!-- <button mat-button>Hang UP</button> -->
+    </div>
+    <div class="overlay" *ngIf="stream">
+        <span class="close-icon">
+            <button mat-icon-button>
+                <mat-icon>close</mat-icon>
+            </button>
+        </span>
+        <div class="row tools">
+            <span class="close-icon">
+                <button mat-icon-button (click)="performCall()" >
+                    <mat-icon>mic</mat-icon>
+                </button>
+            </span>
+            <span class="close-icon">
+                <button mat-icon-button>
+                    <mat-icon>videocam</mat-icon>
+                </button>
+            </span>
+        </div>
+    </div>
+</div>

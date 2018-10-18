@@ -1,0 +1,35 @@
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav #drawer class="sidenav" fixedInViewport="true" [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+    [mode]="'side'" opened [position]="'end'">
+    <mat-grid-list cols="4" rowHeight="200px">
+      <mat-grid-tile [colspan]="'3'">
+        <app-my-video></app-my-video>
+      </mat-grid-tile>
+      <mat-grid-tile class="chat-settings" >
+        <app-my-controls (call)="call($event)" (hangUp)="call($event)"></app-my-controls>
+      </mat-grid-tile>
+    </mat-grid-list>
+    <mat-tab-group class="side-nav-tab">
+      <mat-tab>
+        <ng-template mat-tab-label>
+          <mat-icon>chat</mat-icon>
+        </ng-template>
+        <app-chat></app-chat>
+      </mat-tab>
+      <mat-tab>
+        <ng-template mat-tab-label>
+          <mat-icon>group</mat-icon>
+        </ng-template>
+        Content 2
+      </mat-tab>
+    </mat-tab-group>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <app-conf-header (screenSharing)="screenSharing($event)"></app-conf-header>
+    <mat-grid-list cols="2" gutterSize="1" rowHeight="4:3">
+      <mat-grid-tile class="mat-grid-bordered" *ngFor="let participant of participants">
+        <app-participant  [participant]="participant" [stream]="participantsObj[participant]" (connect)="performCall($event)"></app-participant>
+      </mat-grid-tile>
+    </mat-grid-list>
+  </mat-sidenav-content>
+</mat-sidenav-container>

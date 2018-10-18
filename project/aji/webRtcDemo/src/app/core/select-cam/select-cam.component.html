@@ -1,0 +1,20 @@
+<div>
+  <h3>Select device</h3>
+  <mat-form-field>
+    <mat-select placeholder="Video devices" [(value)]="selected.video">
+      <mat-option *ngFor="let list of mediaList" [value]="list.deviceId">
+        {{list.label}} {{getListId(list)}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <div></div>
+  <mat-form-field>
+    <mat-select placeholder="Audio devices" [(value)]="selected.audio">
+      <mat-option *ngFor="let list of audioList" [value]="list.deviceId">
+        {{list.label}} {{getListId(list)}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <div></div>
+  <button (click)="onNoClick()">OK</button>
+</div>
